@@ -1,5 +1,5 @@
 # Mono
-### The framework for monolithic microservices
+### The Go framework for monolithic microservices
 
 ## Concept
 This is a concept I've been working on that sounds bizarre, but I think makes plenty of sense in practice. I'm developing this framework alongside a personal project to determine if I'm insane or not.
