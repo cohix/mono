@@ -6,12 +6,14 @@ import (
 
 type Service struct {
 	Name   string
+	Port   int
 	router *mux.Router
 }
 
-func InitService(name string) *Service {
+func InitService(name string, port int) *Service {
 	return &Service{
 		Name:   name,
+		Port:   port,
 		router: mux.NewRouter(),
 	}
 }

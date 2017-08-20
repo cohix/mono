@@ -42,9 +42,11 @@ func (ms *Server) ListenAndServe(port int) error {
 	}
 
 	ms.Logger.SetServiceName(serviceName)
-	ms.Logger.LogInfo(fmt.Sprintf("Starting %s service on port %d", serviceName, port))
+	ms.Logger.LogInfo(fmt.Sprintf("Starting %s service on port %d", serviceName, service.Port))
 
-	if err := http.ListenAndServe(fmt.Sprintf(":%d", port), service.Router()); err != nil {
+	ms.server.Handler = service.Router()
+	ms.server.Addr = fmt.Sprintf(":%d", service.Port)
+	if err := ms.server.ListenAndServe(); err != nil {
 		return err
 	}
 
