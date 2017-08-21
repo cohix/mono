@@ -25,3 +25,7 @@ func (ms *Service) Router() *mux.Router {
 func (ms *Service) AddRoute(handler *Handler) {
 	ms.router.Methods(handler.Method).Path(handler.Path).HandlerFunc(handler.HandlerFunc())
 }
+
+func (ms *Service) AddRouteForMethod(handler *Handler) {
+	ms.router.Methods(handler.Method).HandlerFunc(handler.HandlerFunc())
+}
